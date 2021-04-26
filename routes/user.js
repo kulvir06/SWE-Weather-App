@@ -1,6 +1,7 @@
 import express from 'express';
 import createUser from '../services/createUser';
 import bodyParser from 'body-parser';
+import hashPassword from '../services/hash';
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }))
@@ -16,11 +17,11 @@ router.get("/", (req,res) => {
 router.post("/new", async(req,res) => {
     email = req.body.email;
     name = req.body.name;
-    password = req.body.password;
+    password = await hashPassword(req.body.password);
     const obj = new createUser();
     const flag = await obj.addUser(email, name, password);  
     if(flag === 0) res.send('err');
-    else res.send('welcome');  
+    else res.sendFile('C:/Users/kulvir/Desktop/DEV/SWE/public/home.html');  
 });
 
 module.exports = router ;

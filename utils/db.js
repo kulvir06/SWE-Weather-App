@@ -3,7 +3,8 @@ import user from '../models/user';
 
 const sequelize = new Sequelize('WeatherApp', 'root', 'password', {
     host: 'localhost',
-    dialect: 'mysql'
+    dialect: 'mysql',
+    logging: false
 });
 
 const db ={};
