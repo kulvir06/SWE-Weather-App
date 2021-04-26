@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        html {
+/*
+* Skeleton V2.0.4
+* Copyright 2014, Dave Gamache
+* www.getskeleton.com
+* Free to use under the MIT license.
+* https://www.opensource.org/licenses/mit-license.php
+* 12/9/2014
+* Sass Version by Seth Coelen https://github.com/whatsnewsaes
+*/
+/* Base files. */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+html {
     font-family: sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
@@ -929,32 +933,3 @@
   
   /*# sourceMappingURL=style.css.map */
   
-    </style>
-    <title>Document</title>
-</head>
-<body>
-    <div class="main">
-		<div class="container">
-			<div class="app twelve columns">
-				<h1 class="headline">Weather Forecast <span class="location"></span></h1>				
-						
-				<div class="row">
-					<div class="search-weather eight columns offset-by-two">
-						<h3>Find a Forecast</h3>
-						<form id="my-form" method="POST">
-							<input type="search" placeholder="Search for a city" class="find-forcast" name="city">
-                            <br>
-							<button class="btn-search" type="submit" formaction="/result">Search</button>
-                            <br>
-                            <h3>Other Options</h3>
-                            <button class="btn-search" type="submit" formaction="/result/ip_location_weather">Current Location Weather</button>
-						</form>
-					</div>
-				</div>	
-
-
-			</div>  <!-- app -->
-		</div> <!-- container -->
-	</div> <!-- main -->
-</body>
-</html>
