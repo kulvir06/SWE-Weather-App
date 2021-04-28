@@ -8,8 +8,7 @@ router.use(bodyParser.urlencoded({ extended: false }));
 let email, password;
 
 router.get("/", (req,res) => {
-    res.sendFile("/login.html", {root: "C:/Users/kulvir/Desktop/DEV/SWE/public"});
-    
+    res.sendFile("/login.html", {root: "C:/Users/kulvir/Desktop/DEV/SWE/public"});    
 });
 
 router.post("/", async (req,res) => {
@@ -17,7 +16,7 @@ router.post("/", async (req,res) => {
     password = req.body.password;
     const obj = new loginUser();
     const flag = await obj.loginUser(email, password);
-    if(flag === 0) res.send('err');
+    if(flag === 0) res.sendFile('C:/Users/kulvir/Desktop/DEV/SWE/public/error_login.html');
     else res.sendFile("C:/Users/kulvir/Desktop/DEV/SWE/public/home.html");
 });
 

@@ -20,7 +20,7 @@ router.post("/new", async(req,res) => {
     password = await hashPassword(req.body.password);
     const obj = new createUser();
     const flag = await obj.addUser(email, name, password);  
-    if(flag === 0) res.send('err');
+    if(flag === 0) res.sendFile('C:/Users/kulvir/Desktop/DEV/SWE/public/error_create_user.html');
     else res.sendFile('C:/Users/kulvir/Desktop/DEV/SWE/public/home.html');  
 });
 
