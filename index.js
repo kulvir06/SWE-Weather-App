@@ -18,4 +18,4 @@ app.use('/login',login)
 
 app.get('/', (req, res) => { res.sendFile('C:/Users/kulvir/Desktop/DEV/SWE/public/landingpage.html'); })
 
-app.listen(3000, ()=> { console.log('server running on port 3000'); });
+app.listen(3000, ()=> { console.log('\n***********\nserver running on port 3000!!\n***********\n'); });

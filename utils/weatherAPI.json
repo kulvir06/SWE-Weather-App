@@ -1,3 +1,4 @@
 {
-    "key": "9a16b2394635fc4be13840339c228137"
+    "key": "9a16b2394635fc4be13840339c228137",
+    "prediction": "api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}"
 }
