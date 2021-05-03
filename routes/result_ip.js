@@ -32,24 +32,32 @@ router.post('/view', (req,res) => {
                 response.on('end', () => {
                     const location = JSON.parse(str);
                     const city = location.city;
-                    
+                    // console.log(location);
+                    // console.log(city);
                     //get weather
                     const url2 = 'https://api.openweathermap.org/data/2.5/weather?q='+city+'&appid=9a16b2394635fc4be13840339c228137&units=metric';
                     https.get(url2, (response) => {
                         response.on('data', (data) => {
                             const weatherData = (JSON.parse(data));
-                            const weatherDescription = (weatherData.weather[0].description);
-                            const temp = (weatherData.main.temp);
-                            const feels_like = (weatherData.main.feels_like);
-                            const temp_min = (weatherData.main.temp_min);
-                            const temp_max = (weatherData.main.temp_max);
-                            const visibility = (weatherData.visibility);
-                            const wind_speed = (weatherData.wind.speed);
-                            const wind_deg = (weatherData.wind.deg);
-                            const city_name = weatherData.name;
-                            
-                            const obj = new updateData();
-                            obj.updateData(city_name,weatherDescription,temp,feels_like,temp_min,temp_max,visibility,wind_speed,wind_deg);
+                            const code = weatherData.cod;
+                            if (code!=404){
+                                const weatherDescription = (weatherData.weather[0].description);
+                                const temp = (weatherData.main.temp);
+                                const feels_like = (weatherData.main.feels_like);
+                                const temp_min = (weatherData.main.temp_min);
+                                const temp_max = (weatherData.main.temp_max);
+                                const visibility = (weatherData.visibility);
+                                const wind_speed = (weatherData.wind.speed);
+                                const wind_deg = (weatherData.wind.deg);
+                                const city_name = weatherData.name;
+                                
+                                const obj = new updateData();
+                                obj.updateData(city_name,weatherDescription,temp,feels_like,temp_min,temp_max,visibility,wind_speed,wind_deg);
+                            }
+                            else{
+                                res.send('error');
+                            }
+
                         });        
                     });
 
