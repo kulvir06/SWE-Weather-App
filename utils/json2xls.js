@@ -1,7 +1,13 @@
 import fs from 'fs';
-import json2xls from 'json2xls';
+import converter from 'json-2-csv';
 
 module.exports = (json) => {
-    let xls = json2xls(json);
-    fs.writeFileSync('data.xlsx', xls);
+    converter.json2csv(json, (err, csv) => {
+        if (err) {
+            throw err;
+        }
+        console.log(csv);
+        fs.writeFileSync('data.csv', csv);
+        
+    });
 }

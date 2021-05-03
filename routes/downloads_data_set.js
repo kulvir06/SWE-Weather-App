@@ -10,6 +10,7 @@ router.post("/", (req,res) => {
         return new Promise(resolve => {
             const obj = new getData();
             const interact = obj.getData();
+            
             setTimeout(() => {
                 resolve(interact);                
             }, 2000);
@@ -18,10 +19,9 @@ router.post("/", (req,res) => {
 
     async function asyncCall() { 
         const arr = await resolveAfter2seconds();
-        arr.forEach(element => {
-            json2xls(element);
-        });
-        
+        console.log(arr);
+        json2xls(arr);
+        res.download('C:/Users/kulvir/Desktop/DEV/SWE/data.csv')
     }
 
     asyncCall();  

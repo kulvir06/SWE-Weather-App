@@ -23,6 +23,7 @@
     "fs": "0.0.1-security",
     "http": "0.0.1-security",
     "https": "^1.0.0",
+    "json-2-csv": "^3.10.3",
     "json2xls": "^0.1.2",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",

@@ -1,0 +1,7 @@
+id,city,description,temp,feels_like,temp_min,temp_max,visibility,wind_speed,wind_deg,createdAt,updatedAt
+1,Delhi,haze,32.59,32.24,31,34.44,2500,2.06,10,Sat May 01 2021 02:29:09 GMT+0530 (India Standard Time),Sat May 01 2021 02:29:09 GMT+0530 (India Standard Time)
+2,Jamshedpur,few clouds,27.53,28.42,27.53,27.53,10000,1.96,218,Sat May 01 2021 02:31:09 GMT+0530 (India Standard Time),Sat May 01 2021 02:31:09 GMT+0530 (India Standard Time)
+3,Vellore,few clouds,26.1,26.1,26.1,26.1,10000,2.27,112,Sat May 01 2021 02:31:22 GMT+0530 (India Standard Time),Sat May 01 2021 02:31:22 GMT+0530 (India Standard Time)
+4,Delhi,haze,38,35.88,38,38,4000,4.12,260,Mon May 03 2021 16:04:10 GMT+0530 (India Standard Time),Mon May 03 2021 16:04:10 GMT+0530 (India Standard Time)
+5,Chandigarh,few clouds,38.4,36,38.4,38.4,10000,3.63,288,Mon May 03 2021 16:08:07 GMT+0530 (India Standard Time),Mon May 03 2021 16:08:07 GMT+0530 (India Standard Time)
+6,Chandigarh,few clouds,38.4,36,38.4,38.4,10000,3.63,288,Mon May 03 2021 16:25:43 GMT+0530 (India Standard Time),Mon May 03 2021 16:25:43 GMT+0530 (India Standard Time)
