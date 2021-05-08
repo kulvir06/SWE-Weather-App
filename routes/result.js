@@ -32,6 +32,7 @@ router.post('/view', (req, res) => {
             
             const obj = new updateData();
             obj.updateData(city_name,weatherDescription,temp,feels_like,temp_min,temp_max,visibility,wind_speed,wind_deg);
+            res.send(weatherData)
             
         });        
     });
