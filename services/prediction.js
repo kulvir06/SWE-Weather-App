@@ -18,7 +18,8 @@ const listData = (data) => {
         wind_speed += Number(element.wind.speed);
         wind_deg += Number(element.wind.deg);                                
     });
-    weatherDescription = data[0].weather.description;  
+    weatherDescription = data[0].weather[0].description;  
+
     const predictedResult = {
         temp: temp/40,
         feels_like: feels_like/40,
