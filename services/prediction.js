@@ -6,8 +6,9 @@ const dataExtractor = (string_data) => {
     
 }
 
-let weatherDescription,temp=0,feels_like=0,temp_max=0,temp_min=0,visibility=0,wind_speed=0,wind_deg=0;
+
 const listData = (data) => {
+    let weatherDescription,temp=0,feels_like=0,temp_max=0,temp_min=0,visibility=0,wind_speed=0,wind_deg=0;
     data.forEach(element => {
         temp += Number(element.main.temp);
         feels_like += Number(element.main.feels_like);
