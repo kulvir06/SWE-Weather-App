@@ -6,6 +6,7 @@ import result from './routes/result';
 import result_ip from './routes/result_ip';
 import downloads_data_set from './routes/downloads_data_set';
 import predict_weather from './routes/predict_weather';
+const ejs = require("ejs");
 
 const app = express();
 
@@ -14,7 +15,7 @@ const exe  = async() => {
 }
 exe();
 
-
+app.set('view engine', 'ejs');
 app.use('/result',result);
 app.use('/user',user);
 app.use('/login',login);
@@ -22,6 +23,6 @@ app.use('/result_ip',result_ip);
 app.use('/prediction',predict_weather);
 app.use('/downloads/data_set',downloads_data_set);
 
-app.get('/', (req, res) => { res.sendFile('C:/Users/kulvir/Desktop/DEV/SWE/public/landingpage.html'); })
+app.get('/', (req, res) => { res.sendFile('C:/Users/Gurtavrein Singh/Desktop/SWE-Weather-App-master/public/landingpage.html'); })
 
-app.listen(3000, ()=> { console.log('\n***********\nserver running on port 3000!!\n***********\n'); });
+app.listen(3000, ()=> { console.log('\n**\nserver running on port 3000!!\n**\n'); });
