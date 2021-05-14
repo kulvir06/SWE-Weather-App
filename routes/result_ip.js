@@ -4,15 +4,16 @@ import bodyParser from 'body-parser';
 import http from 'http';
 import writeData from '../utils/writeJSON';
 import updateData from '../services/updateData';
+const ejs = require("ejs");
 
 
 const router = express.Router();
 router.use(bodyParser.urlencoded({ extended: false }))
 
 router.post('/', (req,res) => {
-     res.sendFile('C:/Users/kulvir/Desktop/DEV/SWE/public/searchResultIP.html');
+     res.sendFile('C:/Users/Gurtavrein Singh/Desktop/SWE-Weather-App-master/public/searchResultIP.html');
 });
-
+let weatherData,weatherDescription,temp,feels_like,temp_max,temp_min,wind_deg,wind_speed,city_name,visibility;
 router.post('/view', (req,res) => {
     let str = '';
     const url = "https://api.ipify.org/?format=json";
@@ -41,18 +42,19 @@ router.post('/view', (req,res) => {
                             const weatherData = (JSON.parse(data));
                             const code = weatherData.cod;
                             if (code!=404){
-                                const weatherDescription = (weatherData.weather[0].description);
-                                const temp = (weatherData.main.temp);
-                                const feels_like = (weatherData.main.feels_like);
-                                const temp_min = (weatherData.main.temp_min);
-                                const temp_max = (weatherData.main.temp_max);
-                                const visibility = (weatherData.visibility);
-                                const wind_speed = (weatherData.wind.speed);
-                                const wind_deg = (weatherData.wind.deg);
-                                const city_name = weatherData.name;
+                                 weatherDescription = (weatherData.weather[0].description);
+                                 temp = (weatherData.main.temp);
+                                 feels_like = (weatherData.main.feels_like);
+                                 temp_min = (weatherData.main.temp_min);
+                                 temp_max = (weatherData.main.temp_max);
+                                 visibility = (weatherData.visibility);
+                                 wind_speed = (weatherData.wind.speed);
+                                 wind_deg = (weatherData.wind.deg);
+                                 city_name = weatherData.name;
                                 
                                 const obj = new updateData();
                                 obj.updateData(city_name,weatherDescription,temp,feels_like,temp_min,temp_max,visibility,wind_speed,wind_deg);
+                                res.redirect("/result_ip/resultip");
                             }
                             else{
                                 res.send('error');
@@ -67,6 +69,11 @@ router.post('/view', (req,res) => {
         });        
     });
 })
+
+router.get('/resultip',function(req,res){
+    res.render("../ejs/result",{city:city_name,temp:temp,feels_like:feels_like,temp_min:temp_min,temp_max:temp_max,visibility:visibility,winds:wind_speed,windd:wind_deg,wd:weatherDescription});
+});
+
 
 router.post('/downloads/JSON', (req,res) => {
     let str = '';
@@ -104,7 +111,7 @@ router.post('/downloads/JSON', (req,res) => {
                 
                             async function asyncCall(x) { 
                                 await resolveAfter2seconds(x);
-                                res.download('C:/Users/kulvir/Desktop/DEV/SWE/json.txt');
+                                res.download('C:/Users/Gurtavrein Singh/Desktop/SWE-Weather-App-master/json.txt');
                             }
                 
                             asyncCall(data);          
