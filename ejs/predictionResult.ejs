@@ -4,10 +4,128 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Predictio Result</title>
+    <title>Result</title>
 </head>
+<style>
+    /*dosen't look good on smaller screens, working on it*/
+
+body {
+    background-image: url("http://freetopwallpaper.com/wp-content/uploads/2013/10/beautiful-mist-wallpaper-hd-66.jpg");
+    color: white;
+    font-family: "Lato", sans-serif;
+  }
+  
+  #weather-page {
+    width: 100%;
+    background-color: black;
+    margin-top: 5%;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5),
+      inset 0 1px rgba(255, 255, 255, 0.3), inset 0 10px rgba(255, 255, 255, 0.2),
+      inset 0 10px 20px rgba(255, 255, 255, 0.25),
+      inset 0 -15px 30px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5),
+      inset 0 1px rgba(255, 255, 255, 0.3), inset 0 10px rgba(255, 255, 255, 0.2),
+      inset 0 10px 20px rgba(255, 255, 255, 0.25),
+      inset 0 -15px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), inset 0 1px rgba(255, 255, 255, 0.3),
+      inset 0 10px rgba(255, 255, 255, 0.2),
+      inset 0 10px 20px rgba(255, 255, 255, 0.25),
+      inset 0 -15px 30px rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.25);
+    padding-bottom: 30px;
+  }
+  
+  h1 {
+    border-bottom: 1px solid white;
+    padding-bottom: 20px;
+    text-align: center;
+  }
+  
+  #current-temp {
+    font-size: 5em;
+    margin-left: 25%;
+    padding-right: 30%;
+    width: 40%;
+  }
+  
+  .left-col {
+    border-right: 1px solid white;
+  }
+  
+  .right-col {
+    padding-left: 10%;
+  }
+  
+  .btn {
+    margin-left: 10%;
+    width: 100px;
+    background: none;
+    border: 2px solid white;
+    border-radius: 5%;
+    color: white;
+  }
+  
+  .btn:hover {
+    background-color: #333;
+    outline: none;
+    color: white;
+  }
+  .btn:focus,
+  .btn:active {
+    outline: none;
+  }
+  #humidity,
+  #wind,
+  #direction {
+    font-size: 1.5em;
+  }
+  
+  .hum {
+    padding-bottom: 10px;
+  }
+  
+  @media (max-width: 580px) {
+    #weather-page {
+      width: 90%;
+      font-size: 0.5em;
+    }
+  }
+</style>
 <body>
-    <h1>City: <%= city %> </h1>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+
+<div class="container" id="weather-page">
+  <h1 id="location"><%= city %></h1>
+  <div class="row">
+    <div class="col-md-6 left-col">
+
+      <span id="current-temp" class="text-left"><%= temp %> ºC</span><br>
+      <!-- <button class="btn btn-default" id="c">&deg; Celsius</button> -->
+      <!-- <button class="btn btn-default" id="f">&deg; Fahrenheit</button> -->
+    </div>
+    <div class="col-md-6 right-col">
+      <!-- <img src="http://icons.iconarchive.com/icons/oxygen-icons.org/oxygen/256/Status-weather-showers-day-icon.png" width="100px" id="icon"> -->
+      <span id="description">Weather Description : <%= wd %></span><br>
+
+      <span id="description">Feels Like: <%= feels_like %> ºC</span><br>
+      <span id="description">Minimum Temperature: <%= temp_min %> ºC</span><br>
+      <span id="description">Maximum Tempurature: <%= temp_max %> ºC</span><br>
+      <span id="description">Visibility: <%= visibility %> m</span><br>
+      <span id="description">Wind Speed : <%= winds %> kmph</span><br>
+      <span id="description">Wind Degree : <%= windd %> degrees</span><br>
+      <!-- <span id="description">Wind Speed : <%= winds %></span><br> -->
+      <div class="hum">
+        <!-- <img src="http://icons.iconarchive.com/icons/custom-icon-design/lovely-weather-2/512/Humidity-icon.png" height="50x" class="drop"> -->
+        <!-- <span id="humidity">0 </span><br> -->
+      </div>
+      <!-- <img src="http://www.seos-project.eu/modules/oceancurrents/images/currents_ch2_wind_cartoon.png" width="60px"> -->
+      <!-- <span id="wind">0 </span> mph <span id="direction"> N </span> -->
+
+    </div>
+  </div>
+</div>
+    <!-- <h1>City: <%= city %> </h1>
     <h4>Temperature: <%= temp %></h4>
     <h4>Feels Like: <%= feels_like %></h4>
     <h4>Minimum Temperature: <%= temp_min %></h4>
@@ -15,8 +133,7 @@
     <h4>Visibility: <%= visibility %></h4>
     <h4>Wind Speed : <%= winds %></h4>
     <h4>Wind Degree : <%= windd %></h4>
-    <h4>Weather Description : <%= wd %></h4>
-
+    <h4>Weather Description : <%= wd %></h4> -->
     
 </body>
 </html>
